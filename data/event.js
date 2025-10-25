@@ -4,7 +4,8 @@ const { NotFoundError } = require('../util/errors');
 const { readData, writeData } = require('./util');
 
 async function getAll() {
-  const storedData = await readData();
+  const db = require('./data');
+  const storedData = db.getStoredData();
   if (!storedData.events) {
     return [];
   }
