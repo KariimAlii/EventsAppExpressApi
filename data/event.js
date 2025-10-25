@@ -6,7 +6,7 @@ const { readData, writeData } = require('./util');
 async function getAll() {
   const storedData = await readData();
   if (!storedData.events) {
-    throw new NotFoundError('Could not find any events.');
+    return [];
   }
   return storedData.events;
 }
