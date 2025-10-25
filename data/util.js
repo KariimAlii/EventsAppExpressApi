@@ -6,7 +6,7 @@ async function readData() {
     try {
         const db = require('./data');
         const data = db.getStoredData();
-        return JSON.parse(data);
+        return data;
     } catch (err) {
         if (err.code === 'ENOENT') {
             // File does not exist, return empty array
