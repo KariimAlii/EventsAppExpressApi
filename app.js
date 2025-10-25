@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-
+const serverless = require('serverless-http');
 const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
 
@@ -24,4 +24,5 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message });
 });
 
-app.listen(8080);
+module.exports = app;
+module.exports.handler = serverless(app);
